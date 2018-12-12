@@ -9,9 +9,12 @@ type singleton struct {
 	Age int
 }
 
-var instance *singleton
-var once sync.Once
+var (
+	instance *singleton
+	once     sync.Once
+)
 
+// GetInstance getInstance
 func GetInstance() *singleton {
 	once.Do(func() {
 		instance = &singleton{}
